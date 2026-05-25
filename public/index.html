@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adiestramiento canino en Las Rozas de Madrid · Maestra Canina</title>
+  <meta name="description" content="Adiestramiento canino en Las Rozas de Madrid. Educación canina, modificación de conducta y control a distancia. 5,0★ · 3 reseñas en Google. Enfoque personalizado basado en la confianza y el respeto."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#059669',
+            'on-primary': '#ffffff',
+            'primary-fixed-dim': '#a7f3d0',
+            'surface-tint': '#047857',
+            'secondary-container': '#fea619',
+            'on-secondary-container': '#3b1f00',
+            'on-primary-container': '#d1fae5',
+            background: '#f9f7f2',
+            surface: '#ffffff',
+            'on-surface': '#1a1a1a',
+            'on-surface-variant': '#4a4a4a',
+            secondary: '#fea619',
+            'secondary-fixed-dim': '#fbbf24',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Epilogue', 'sans-serif'],
+          },
+          maxWidth: { 'container-max-width': '1200px' },
+          spacing: {
+            'margin-mobile': '1.25rem',
+            'margin-desktop': '2.5rem',
+            gutter: '1.5rem',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+  .font-headline-lg  { font-family:'Epilogue',sans-serif; font-size:clamp(1.75rem,4vw,2.5rem); font-weight:700; line-height:1.15; letter-spacing:-0.03em; }
+  .font-headline-md  { font-family:'Epilogue',sans-serif; font-size:1.375rem; font-weight:700; line-height:1.2; letter-spacing:-0.02em; }
+  .font-body-md      { font-family:'Inter',sans-serif; font-size:1rem; font-weight:400; line-height:1.7; }
+  .font-label-md     { font-family:'Inter',sans-serif; font-size:0.9375rem; font-weight:600; }
+  .font-label-sm     { font-family:'Inter',sans-serif; font-size:0.75rem; font-weight:600; }
+
+  .tonal-shadow       { box-shadow: 0 4px 8px rgba(5,150,105,0.04), 0 1px 3px rgba(5,150,105,0.06); }
+  .tonal-shadow-hover { box-shadow: 0 8px 16px rgba(5,150,105,0.08), 0 2px 6px rgba(5,150,105,0.08); }
+
+  .anim { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .anim.anim-slide-l { transform: translateX(-20px); }
+  .anim.anim-slide-r { transform: translateX(20px); }
+  .anim.visible { opacity: 1; transform: none; }
+  .delay-1 { transition-delay: 0.1s; }
+  .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
+
+  @keyframes carousel-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  #reviewCarousel { animation: carousel-scroll 30s linear infinite; }
+  #reviewCarousel:hover { animation-play-state: paused; }
+  </style>
+</head>
+<body class="bg-background">
+
+<!-- ════════════════════════════ NAV ════════════════════════════ -->
+<header class="sticky top-0 z-50 w-full bg-background/95 backdrop-blur border-b border-[#E9E5D9]" style="box-shadow:0 1px 8px rgba(5,150,105,0.06);">
+  <div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop h-16 flex items-center justify-between gap-4">
+    <a href="#" class="flex items-center gap-2 flex-shrink-0">
+      <span class="material-symbols-outlined text-primary text-[22px]" style="font-variation-settings:'FILL' 1;">pets</span>
+      <span style="font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.2rem;color:#059669;letter-spacing:-0.01em;">Maestra Canina</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="#servicios" class="font-label-md text-on-surface-variant hover:text-primary transition-colors">Servicios</a>
+      <a href="#nosotros" class="font-label-md text-on-surface-variant hover:text-primary transition-colors">Nosotros</a>
+      <a href="#resenas" class="font-label-md text-on-surface-variant hover:text-primary transition-colors">Reseñas</a>
+      <a href="#contacto" class="font-label-md text-on-surface-variant hover:text-primary transition-colors">Contacto</a>
+      <a href="https://maps.app.goo.gl/F89x5V3u41NmDNjC9" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-primary text-on-primary font-label-md px-5 py-2.5 rounded-lg font-bold hover:bg-surface-tint transition-colors tonal-shadow tonal-shadow-hover">
+        <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">map</span>
+        Ver en Maps
+      </a>
+    </nav>
+    <button id="menuBtn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Abrir menú">
+      <span class="w-5 h-0.5 bg-on-surface block"></span>
+      <span class="w-5 h-0.5 bg-on-surface block"></span>
+      <span class="w-5 h-0.5 bg-on-surface block"></span>
+    </button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-background border-t border-[#E9E5D9] px-margin-mobile py-4 flex flex-col gap-4">
+    <a href="#servicios" class="font-label-md text-on-surface-variant">Servicios</a>
+    <a href="#nosotros" class="font-label-md text-on-surface-variant">Nosotros</a>
+    <a href="#resenas" class="font-label-md text-on-surface-variant">Reseñas</a>
+    <a href="#contacto" class="font-label-md text-on-surface-variant">Contacto</a>
+    <a href="https://maps.app.goo.gl/F89x5V3u41NmDNjC9" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-primary text-on-primary font-label-md px-5 py-3 rounded-lg font-bold w-fit">
+      <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">map</span>
+      Ver en Maps
+    </a>
+  </div>
+</header>
+
+<!-- ════════════════════════════ HERO ════════════════════════════ -->
+<section class="w-full relative overflow-hidden" style="min-height:560px;">
+  <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFhTan2bkIFryNXTF9q37odouJqhQKn8hdDtOmmPkk53-ev9hGg3A3iQ0Go-B2Tzi9uTeEaOtftNZqLfR2nlZCSUnrDhnTeVrL0mjid6Coli-JmchjmmD2afhR8Po2ShXAvGNlj=w1200-h900-k-no"
+    alt="Adiestramiento canino en Las Rozas de Madrid — Maestra Canina"
+    class="absolute inset-0 w-full h-full object-cover"/>
+  <div class="absolute inset-0" style="background:linear-gradient(to right, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.42) 55%, rgba(0,0,0,0.10) 100%);"></div>
+  <div class="relative z-10 max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop py-20 md:py-28 flex items-center" style="min-height:560px;">
+    <div class="w-full md:w-1/2 flex flex-col gap-6">
+      <div class="flex items-center gap-2">
+        <div class="flex items-center gap-0.5" style="color:#FBBC04">
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+        </div>
+        <span class="font-label-sm text-white font-semibold">5,0 · 3 reseñas en Google</span>
+      </div>
+      <h1 class="font-headline-lg text-white">
+        Adiestramiento canino<br/>en Las Rozas de Madrid
+      </h1>
+      <p class="font-body-md text-white/85 max-w-md">
+        Enfoque personalizado, comunicación efectiva entre el perro y su dueño. Una relación basada en la confianza y el respeto, en Las Rozas de Madrid.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#contacto" class="inline-flex items-center justify-center gap-2 bg-primary text-on-primary font-label-md font-bold px-6 py-3.5 rounded-lg hover:bg-surface-tint transition-colors" style="box-shadow:0 4px 16px rgba(5,150,105,0.4);">
+          <span class="material-symbols-outlined text-[20px]" style="font-variation-settings:'FILL' 1;">map</span>
+          Cómo llegar
+        </a>
+        <a href="#servicios" class="inline-flex items-center justify-center gap-2 font-label-md font-bold px-6 py-3.5 rounded-lg hover:bg-white/25 transition-colors" style="background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);color:#fff;">
+          <span class="material-symbols-outlined text-[20px]" style="font-variation-settings:'FILL' 1;">pets</span>
+          Ver servicios
+        </a>
+      </div>
+      <div class="flex flex-wrap gap-2 mt-1">
+        <span class="inline-flex items-center gap-1.5 font-label-md text-[13px] px-3 py-1.5 rounded-full font-semibold" style="background:rgba(255,255,255,0.18);backdrop-filter:blur(6px);color:#fff;">
+          <span class="material-symbols-outlined text-[15px]" style="font-variation-settings:'FILL' 1;">favorite</span>
+          Enfoque personalizado
+        </span>
+        <span class="inline-flex items-center gap-1.5 font-label-md text-[13px] px-3 py-1.5 rounded-full font-semibold" style="background:rgba(254,166,25,0.22);backdrop-filter:blur(6px);color:#fea619;">
+          <span class="material-symbols-outlined text-[15px]" style="font-variation-settings:'FILL' 1;">location_on</span>
+          Las Rozas · Madrid
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ STATS ════════════════════════════ -->
+<section class="w-full py-8" style="background:linear-gradient(135deg,#047857 0%,#059669 100%);">
+  <div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div>
+        <p class="font-headline-md text-[1.75rem] text-secondary-container font-bold">5,0★</p>
+        <p class="font-label-sm text-on-primary-container text-[11px] uppercase tracking-wider mt-1">Valoración Google</p>
+      </div>
+      <div>
+        <p class="font-headline-md text-[1.75rem] text-secondary-container font-bold">3</p>
+        <p class="font-label-sm text-on-primary-container text-[11px] uppercase tracking-wider mt-1">Reseñas verificadas</p>
+      </div>
+      <div>
+        <p class="font-headline-md text-[1.75rem] text-secondary-container font-bold">MAD</p>
+        <p class="font-label-sm text-on-primary-container text-[11px] uppercase tracking-wider mt-1">Las Rozas · Madrid</p>
+      </div>
+      <div>
+        <p class="font-headline-md text-[1.75rem] text-secondary-container font-bold">100%</p>
+        <p class="font-label-sm text-on-primary-container text-[11px] uppercase tracking-wider mt-1">Educación en positivo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ SERVICIOS ════════════════════════════ -->
+<section id="servicios" class="w-full bg-background py-20">
+  <div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="text-center mb-12">
+      <h2 class="anim font-headline-lg text-primary mb-3">Nuestros servicios</h2>
+      <p class="anim delay-1 font-body-md text-on-surface-variant max-w-xl mx-auto">Adiestramiento adaptado a cada perro y a cada familia. Resultados reales desde la primera sesión.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div class="anim group relative overflow-hidden rounded-2xl tonal-shadow flex flex-col" style="min-height:360px;">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAH_7kiFkIAR0lhNRvUXC-2Gvx-9u1IqlB114LQwXhZdojxHNbLxeCRTW8EWrHnYTiRrDDAiIH0kaB4N5wxAoavE0yZ485v9K9Oxj6_hRb5UxOpDjBS0xa8ZsA7mLIXwW6CsvRM=w1200-h900-k-no"
+          alt="Educación canina Las Rozas" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+        <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(5,150,105,0.92) 0%, rgba(5,150,105,0.78) 18%, rgba(5,150,105,0.35) 35%, transparent 50%);"></div>
+        <div class="relative z-10 flex flex-col h-full p-6 gap-3">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.15);backdrop-filter:blur(4px);">
+            <span class="material-symbols-outlined text-[22px] text-white" style="font-variation-settings:'FILL' 1;">school</span>
+          </div>
+          <div class="mt-auto">
+            <h3 class="font-headline-md text-[1.05rem] text-white mb-1">Educación canina</h3>
+            <p class="font-body-md text-[0.875rem] text-white/80 leading-relaxed">Bases sólidas de convivencia y obediencia. Educación personalizada que respeta el ritmo y la personalidad de cada perro.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="anim delay-1 group relative overflow-hidden rounded-2xl tonal-shadow flex flex-col" style="min-height:360px;">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGgPThs1S6LSeEitrc49eVH8rfZ5hnccP3Efq7c8Ab2_EGFBQm0EwmWLgOFWzWKzx7-DqakevGnRrEhjXWNx9_KUTQhTAzpK2L-MeyQM0ZPh-AcdqZPQCCB9-im3Rpkp4ipt5U=w1200-h900-k-no"
+          alt="Llamada control a distancia Las Rozas" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+        <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(5,150,105,0.92) 0%, rgba(5,150,105,0.78) 18%, rgba(5,150,105,0.35) 35%, transparent 50%);"></div>
+        <div class="relative z-10 flex flex-col h-full p-6 gap-3">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.15);backdrop-filter:blur(4px);">
+            <span class="material-symbols-outlined text-[22px] text-white" style="font-variation-settings:'FILL' 1;">record_voice_over</span>
+          </div>
+          <div class="mt-auto">
+            <h3 class="font-headline-md text-[1.05rem] text-white mb-1">Llamada · Control a distancia</h3>
+            <p class="font-body-md text-[0.875rem] text-white/80 leading-relaxed">Especialidad destacada: la llamada a la primera. Libertad total en el campo con plena seguridad y control.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="anim delay-2 group relative overflow-hidden rounded-2xl tonal-shadow flex flex-col" style="min-height:360px;">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGJGroiJLPnPZHwrdBgFimiwQ1gaqQ9AxxoieIyrb2XlWxZNtEHyt3nEYOwALVXWZhaL0tNOZjQFoK9kJH1fFoFjn1wpokQv8jb4CWQyo3Hmy8PLmi8-Gq1wAsxXNFsgm0SVDBSug=w1200-h900-k-no"
+          alt="Modificación de conducta Las Rozas" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+        <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(5,150,105,0.92) 0%, rgba(5,150,105,0.78) 18%, rgba(5,150,105,0.35) 35%, transparent 50%);"></div>
+        <div class="relative z-10 flex flex-col h-full p-6 gap-3">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.15);backdrop-filter:blur(4px);">
+            <span class="material-symbols-outlined text-[22px] text-white" style="font-variation-settings:'FILL' 1;">psychology</span>
+          </div>
+          <div class="mt-auto">
+            <h3 class="font-headline-md text-[1.05rem] text-white mb-1">Modificación de conducta</h3>
+            <p class="font-body-md text-[0.875rem] text-white/80 leading-relaxed">Miedos, reactividad, agresividad y ansiedad. Cada caso se trata de forma individualizada, con paciencia y metodología.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="anim delay-3 group relative overflow-hidden rounded-2xl tonal-shadow flex flex-col" style="min-height:360px;">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEZjofTuS-1L84XrjbxKVbhAGxHnyghIz3ruDc5BrOJYAw0DLLhIU76JHPHkiiM-pERQsP2Sz8hL5QUMpn-Z-yDf5pzG3WrrnH8Tdv9zKNoFBNA6iv8bhH-FUfTXBVelbwqj5v4Eg=w1200-h900-k-no"
+          alt="Adiestramiento en positivo Las Rozas" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+        <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(5,150,105,0.92) 0%, rgba(5,150,105,0.78) 18%, rgba(5,150,105,0.35) 35%, transparent 50%);"></div>
+        <div class="relative z-10 flex flex-col h-full p-6 gap-3">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(255,255,255,0.15);backdrop-filter:blur(4px);">
+            <span class="material-symbols-outlined text-[22px] text-white" style="font-variation-settings:'FILL' 1;">emoji_events</span>
+          </div>
+          <div class="mt-auto">
+            <h3 class="font-headline-md text-[1.05rem] text-white mb-1">Adiestramiento en positivo</h3>
+            <p class="font-body-md text-[0.875rem] text-white/80 leading-relaxed">Método basado en el refuerzo positivo y el respeto mutuo. Un aprendizaje que fortalece el vínculo entre tú y tu perro.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ NOSOTROS ════════════════════════════ -->
+<section id="nosotros" class="w-full py-20 bg-surface">
+  <div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="flex flex-col md:flex-row items-center gap-12">
+      <div class="anim anim-slide-l w-full md:w-1/2 flex flex-col gap-6">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest" style="background:rgba(5,150,105,0.10);color:#059669;letter-spacing:0.12em;">La educadora</span>
+        <h2 class="font-headline-lg text-primary">Maestra Canina</h2>
+        <p class="font-body-md text-on-surface-variant leading-relaxed">
+          Educadora canina en Las Rozas de Madrid con un enfoque completamente personalizado. Su método se basa en la comunicación efectiva entre el perro y su dueño, construyendo una relación basada en la confianza y el respeto mutuo.
+        </p>
+        <p class="font-body-md text-on-surface-variant leading-relaxed">
+          Especializada en llamada a la primera, paseos con perros sueltos, manejo de miedos, reactividad y agresividad. Los clientes destacan su dominio técnico y su capacidad para resolver situaciones complejas con resultados sorprendentes.
+        </p>
+        <div class="flex flex-wrap gap-3 mt-2">
+          <a href="#contacto" class="inline-flex items-center gap-2 bg-primary text-on-primary font-label-md font-bold px-6 py-3 rounded-lg hover:bg-surface-tint transition-colors tonal-shadow">
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">map</span>
+            Cómo llegar
+          </a>
+          <a href="https://maps.app.goo.gl/F89x5V3u41NmDNjC9" target="_blank" rel="noopener" class="inline-flex items-center gap-2 border border-[#E9E5D9] text-on-surface-variant font-label-md font-bold px-5 py-3 rounded-lg hover:border-primary hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            Ver en Google Maps
+          </a>
+        </div>
+      </div>
+      <div class="anim anim-slide-r delay-1 w-full md:w-1/2">
+        <img
+          src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFW6QflgulIazYjsC_aH2xouQ-JKCI4vC5Ykqkd4EyeNnCbwiPR6yWoegDDkGRRdz2mr3l95MRjtGCQ5jObgUWOu-HOv1ENLUP8o5ludD7cznNJwovBx2VkUQdscT8a1twkbezH=w1200-h900-k-no"
+          alt="Maestra Canina — educadora canina en Las Rozas de Madrid"
+          class="rounded-2xl w-full h-[400px] object-cover shadow-[0_4px_24px_rgba(5,150,105,0.10)] border border-[#E9E5D9]"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ POR QUÉ ELEGIRNOS ════════════════════════════ -->
+<section class="w-full py-20" style="background:#1c1c1c;">
+  <div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="text-center mb-12">
+      <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest mb-4" style="background:rgba(165,208,185,0.15);color:#d1fae5;letter-spacing:0.12em;">¿Por qué Maestra Canina?</span>
+      <h2 class="anim font-headline-lg text-white mb-3">Lo que nos hace diferentes</h2>
+      <p class="anim delay-1 font-body-md max-w-xl mx-auto" style="color:rgba(255,255,255,0.65);">Una educadora con un dominio técnico excepcional y resultados que hablan por sí solos.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="anim rounded-2xl p-6 flex flex-col gap-4" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:#fea619;">
+          <span class="material-symbols-outlined text-[24px]" style="color:#3b1f00;font-variation-settings:'FILL' 1;">record_voice_over</span>
+        </div>
+        <h3 class="font-headline-md text-[1.05rem] text-white">Llamada a la primera</h3>
+        <p class="font-body-md text-[0.875rem] leading-relaxed" style="color:rgba(255,255,255,0.65);">Sus clientes lo destacan como algo excepcional: la llamada funciona a la primera, incluso en entornos con muchos estímulos y otros perros sueltos alrededor.</p>
+      </div>
+
+      <div class="anim delay-1 rounded-2xl p-6 flex flex-col gap-4" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:#fea619;">
+          <span class="material-symbols-outlined text-[24px]" style="color:#3b1f00;font-variation-settings:'FILL' 1;">tune</span>
+        </div>
+        <h3 class="font-headline-md text-[1.05rem] text-white">Enfoque personalizado</h3>
+        <p class="font-body-md text-[0.875rem] leading-relaxed" style="color:rgba(255,255,255,0.65);">Cada perro y cada dueño son únicos. El plan de trabajo se diseña específicamente para vuestro caso, sin fórmulas genéricas.</p>
+      </div>
+
+      <div class="anim delay-2 rounded-2xl p-6 flex flex-col gap-4" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:#fea619;">
+          <span class="material-symbols-outlined text-[24px]" style="color:#3b1f00;font-variation-settings:'FILL' 1;">favorite</span>
+        </div>
+        <h3 class="font-headline-md text-[1.05rem] text-white">Confianza y respeto mutuo</h3>
+        <p class="font-body-md text-[0.875rem] leading-relaxed" style="color:rgba(255,255,255,0.65);">La base de todo el trabajo es la confianza. No se usan métodos coercitivos: el perro aprende porque quiere, no porque tiene miedo.</p>
+      </div>
+
+      <div class="anim delay-1 rounded-2xl p-6 flex flex-col gap-4" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:#fea619;">
+          <span class="material-symbols-outlined text-[24px]" style="color:#3b1f00;font-variation-settings:'FILL' 1;">psychology</span>
+        </div>
+        <h3 class="font-headline-md text-[1.05rem] text-white">Especialista en conducta</h3>
+        <p class="font-body-md text-[0.875rem] leading-relaxed" style="color:rgba(255,255,255,0.65);">Miedos, reactividad y agresividad son sus especialidades. Resuelve casos complejos con paciencia, conocimiento y metodología probada.</p>
+      </div>
+
+      <div class="anim delay-2 rounded-2xl p-6 flex flex-col gap-4" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:#fea619;">
+          <span class="material-symbols-outlined text-[24px]" style="color:#3b1f00;font-variation-settings:'FILL' 1;">forest</span>
+        </div>
+        <h3 class="font-headline-md text-[1.05rem] text-white">Paseos en libertad</h3>
+        <p class="font-body-md text-[0.875rem] leading-relaxed" style="color:rgba(255,255,255,0.65);">Trabaja paseos por el campo con perros sueltos, logrando que disfrutes de la naturaleza con total tranquilidad y seguridad.</p>
+      </div>
+
+      <div class="anim delay-3 rounded-2xl p-6 flex flex-col gap-4" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:#fea619;">
+          <span class="material-symbols-outlined text-[24px]" style="color:#3b1f00;font-variation-settings:'FILL' 1;">star</span>
+        </div>
+        <h3 class="font-headline-md text-[1.05rem] text-white">5,0★ · 3 reseñas perfectas</h3>
+        <p class="font-body-md text-[0.875rem] leading-relaxed" style="color:rgba(255,255,255,0.65);">Nota perfecta en Google con todas las reseñas a 5 estrellas. Cada cliente ha quedado más que satisfecho con los resultados.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ RESEÑAS ════════════════════════════ -->
+<section id="resenas" class="w-full bg-surface py-20">
+  <div class="max-w-container-max-width mx-auto">
+    <div class="text-center mb-10 px-margin-mobile md:px-margin-desktop">
+      <h2 class="anim font-headline-lg text-primary mb-3">Lo que dicen nuestros clientes</h2>
+      <p class="anim delay-1 font-body-md text-on-surface-variant max-w-2xl mx-auto">3 reseñas reales en Google Maps · 5,0 ★ de media</p>
+    </div>
+
+    <div class="overflow-hidden py-2">
+    <div id="reviewCarousel" class="flex gap-5 pb-4" style="width:max-content;">
+
+      <div class="flex-shrink-0 w-[320px] md:w-[360px] bg-background rounded-xl p-6 border border-[#E9E5D9] tonal-shadow flex flex-col gap-4">
+        <div class="flex items-center gap-1" style="color:#FBBC04">
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant italic leading-relaxed flex-1">"Excelente. Experta en llamada A LA PRIMERA! y manadas y paseos por el campo con perros sueltos, y miedos y reactividad/agresividad, etc., y modificación de conductas."</p>
+        <div class="flex items-center gap-3 pt-2 border-t border-[#E9E5D9]">
+          <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+            <span class="text-on-primary font-bold text-sm">M</span>
+          </div>
+          <div>
+            <p class="font-label-md text-on-surface text-sm">mari carmen</p>
+            <p class="font-label-sm text-on-surface-variant text-xs">Google Maps</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-shrink-0 w-[320px] md:w-[360px] bg-background rounded-xl p-6 border border-[#E9E5D9] tonal-shadow flex flex-col gap-4">
+        <div class="flex items-center gap-1" style="color:#FBBC04">
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant italic leading-relaxed flex-1">"Excelente educación canina, adiestramiento de perros, comunicación canina y modificación de conductas"</p>
+        <div class="flex items-center gap-3 pt-2 border-t border-[#E9E5D9]">
+          <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+            <span class="text-on-primary font-bold text-sm">R</span>
+          </div>
+          <div>
+            <p class="font-label-md text-on-surface text-sm">Rosa Mitall</p>
+            <p class="font-label-sm text-on-surface-variant text-xs">Google Maps</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-shrink-0 w-[320px] md:w-[360px] bg-background rounded-xl p-6 border border-[#E9E5D9] tonal-shadow flex flex-col gap-4">
+        <div class="flex items-center gap-1" style="color:#FBBC04">
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant italic leading-relaxed flex-1">"Excelente educación canina y adiestramiento en positivo"</p>
+        <div class="flex items-center gap-3 pt-2 border-t border-[#E9E5D9]">
+          <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+            <span class="text-on-primary font-bold text-sm">M</span>
+          </div>
+          <div>
+            <p class="font-label-md text-on-surface text-sm">Madum</p>
+            <p class="font-label-sm text-on-surface-variant text-xs">Google Maps</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duplicates for infinite scroll -->
+      <div class="flex-shrink-0 w-[320px] md:w-[360px] bg-background rounded-xl p-6 border border-[#E9E5D9] tonal-shadow flex flex-col gap-4">
+        <div class="flex items-center gap-1" style="color:#FBBC04">
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant italic leading-relaxed flex-1">"Excelente. Experta en llamada A LA PRIMERA! y manadas y paseos por el campo con perros sueltos, y miedos y reactividad/agresividad, etc., y modificación de conductas."</p>
+        <div class="flex items-center gap-3 pt-2 border-t border-[#E9E5D9]">
+          <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+            <span class="text-on-primary font-bold text-sm">M</span>
+          </div>
+          <div>
+            <p class="font-label-md text-on-surface text-sm">mari carmen</p>
+            <p class="font-label-sm text-on-surface-variant text-xs">Google Maps</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-shrink-0 w-[320px] md:w-[360px] bg-background rounded-xl p-6 border border-[#E9E5D9] tonal-shadow flex flex-col gap-4">
+        <div class="flex items-center gap-1" style="color:#FBBC04">
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant italic leading-relaxed flex-1">"Excelente educación canina, adiestramiento de perros, comunicación canina y modificación de conductas"</p>
+        <div class="flex items-center gap-3 pt-2 border-t border-[#E9E5D9]">
+          <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+            <span class="text-on-primary font-bold text-sm">R</span>
+          </div>
+          <div>
+            <p class="font-label-md text-on-surface text-sm">Rosa Mitall</p>
+            <p class="font-label-sm text-on-surface-variant text-xs">Google Maps</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-shrink-0 w-[320px] md:w-[360px] bg-background rounded-xl p-6 border border-[#E9E5D9] tonal-shadow flex flex-col gap-4">
+        <div class="flex items-center gap-1" style="color:#FBBC04">
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant italic leading-relaxed flex-1">"Excelente educación canina y adiestramiento en positivo"</p>
+        <div class="flex items-center gap-3 pt-2 border-t border-[#E9E5D9]">
+          <div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+            <span class="text-on-primary font-bold text-sm">M</span>
+          </div>
+          <div>
+            <p class="font-label-md text-on-surface text-sm">Madum</p>
+            <p class="font-label-sm text-on-surface-variant text-xs">Google Maps</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+    <div class="text-center mt-8 px-margin-mobile md:px-margin-desktop">
+      <a href="https://maps.app.goo.gl/F89x5V3u41NmDNjC9" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-secondary font-label-md font-bold hover:text-secondary-fixed-dim transition-colors">
+        Ver todas las reseñas en Google <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ FAQ ════════════════════════════ -->
+<section class="w-full bg-background py-20">
+  <div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="text-center mb-10">
+      <h2 class="anim font-headline-lg text-primary mb-3">Preguntas frecuentes</h2>
+    </div>
+    <div class="max-w-2xl mx-auto flex flex-col gap-4">
+
+      <details class="group rounded-2xl border border-[#E9E5D9] bg-surface overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer font-label-md text-on-surface select-none">
+          ¿En qué consiste la llamada a la primera?
+          <span class="material-symbols-outlined text-primary transition-transform group-open:rotate-180">expand_more</span>
+        </summary>
+        <div class="px-5 pb-5 font-body-md text-on-surface-variant">
+          Es la capacidad de que tu perro acuda a ti a la primera llamada, independientemente del entorno: otros perros, personas, olores o distracciones. Una vez conseguida, podrás disfrutar de paseos por el campo con total libertad y tranquilidad.
+        </div>
+      </details>
+
+      <details class="group rounded-2xl border border-[#E9E5D9] bg-surface overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer font-label-md text-on-surface select-none">
+          ¿Trabajáis con perros reactivos o agresivos?
+          <span class="material-symbols-outlined text-primary transition-transform group-open:rotate-180">expand_more</span>
+        </summary>
+        <div class="px-5 pb-5 font-body-md text-on-surface-variant">
+          Sí, es una de las especialidades de Maestra Canina. Se trabajan casos de reactividad, agresividad entre perros, miedos y ansiedad mediante un plan personalizado y un enfoque de modificación de conducta basado en el respeto.
+        </div>
+      </details>
+
+      <details class="group rounded-2xl border border-[#E9E5D9] bg-surface overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer font-label-md text-on-surface select-none">
+          ¿Qué es el adiestramiento en positivo?
+          <span class="material-symbols-outlined text-primary transition-transform group-open:rotate-180">expand_more</span>
+        </summary>
+        <div class="px-5 pb-5 font-body-md text-on-surface-variant">
+          Es una metodología basada en el refuerzo positivo: el perro aprende asociando sus acciones correctas con algo que le gusta. No se usan castigos ni métodos coercitivos. El resultado es un perro más seguro, feliz y con mayor vínculo con su dueño.
+        </div>
+      </details>
+
+      <details class="group rounded-2xl border border-[#E9E5D9] bg-surface overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer font-label-md text-on-surface select-none">
+          ¿Dónde estáis ubicados?
+          <span class="material-symbols-outlined text-primary transition-transform group-open:rotate-180">expand_more</span>
+        </summary>
+        <div class="px-5 pb-5 font-body-md text-on-surface-variant">
+          Estamos en C. Castillo de Arévalo, 1, 28232 Las Rozas de Madrid. Puedes encontrarnos fácilmente en Google Maps buscando Maestra Canina.
+        </div>
+      </details>
+
+      <details class="group rounded-2xl border border-[#E9E5D9] bg-surface overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer font-label-md text-on-surface select-none">
+          ¿Cómo puedo contactar o pedir información?
+          <span class="material-symbols-outlined text-primary transition-transform group-open:rotate-180">expand_more</span>
+        </summary>
+        <div class="px-5 pb-5 font-body-md text-on-surface-variant">
+          Puedes encontrarnos en Google Maps buscando Maestra Canina en Las Rozas de Madrid y enviarnos un mensaje directamente desde allí. También puedes visitarnos en C. Castillo de Arévalo, 1, 28232 Las Rozas de Madrid.
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ CONTACTO + MAPA ════════════════════════════ -->
+<section id="contacto" class="w-full bg-surface py-20">
+  <div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="text-center mb-10">
+      <h2 class="anim font-headline-lg text-primary mb-3">Cómo llegar</h2>
+      <p class="anim delay-1 font-body-md text-on-surface-variant max-w-xl mx-auto">Estamos en Las Rozas de Madrid. Encuéntranos en Google Maps.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+      <div class="flex flex-col gap-6">
+        <div class="bg-primary rounded-2xl p-6 text-on-primary flex flex-col gap-4">
+          <h3 class="font-headline-md text-[1.2rem]">Contacto directo</h3>
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-secondary-container text-[24px]" style="font-variation-settings:'FILL' 1;">location_on</span>
+            <div>
+              <p class="font-label-sm text-primary-fixed-dim uppercase tracking-wider">Dirección</p>
+              <p class="font-body-md font-semibold">C. Castillo de Arévalo, 1<br/>28232 Las Rozas de Madrid</p>
+            </div>
+          </div>
+          <a href="https://maps.app.goo.gl/F89x5V3u41NmDNjC9" target="_blank" rel="noopener" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
+            <span class="material-symbols-outlined text-secondary-container text-[24px]" style="font-variation-settings:'FILL' 1;">map</span>
+            <div>
+              <p class="font-label-sm text-primary-fixed-dim uppercase tracking-wider">Google Maps</p>
+              <p class="font-body-md font-semibold">Ver ficha y cómo llegar</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="bg-surface rounded-2xl p-6 border border-[#E9E5D9] tonal-shadow flex flex-col gap-4">
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-0.5" style="color:#FBBC04">
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+            </div>
+            <span class="font-body-md text-on-surface-variant"><strong class="text-primary">5,0 ★</strong> · 3 reseñas verificadas en Google</span>
+          </div>
+          <a href="https://maps.app.goo.gl/F89x5V3u41NmDNjC9" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 bg-primary text-on-primary font-label-md font-bold px-5 py-3 rounded-lg hover:bg-surface-tint transition-colors w-fit">
+            <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">map</span>
+            Ver ficha en Google Maps
+          </a>
+        </div>
+      </div>
+
+      <div class="rounded-2xl overflow-hidden tonal-shadow border border-[#E9E5D9]" style="height:500px;">
+        <iframe
+          src="https://maps.google.com/maps?q=Maestra+Canina+Las+Rozas+Madrid&z=15&output=embed&hl=es"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Maestra Canina en Las Rozas de Madrid">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ FOOTER ════════════════════════════ -->
+<footer class="w-full bg-primary py-10">
+  <div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex flex-col items-center md:items-start gap-1">
+      <span style="font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.1rem;color:#ffffff;">Maestra Canina</span>
+      <span class="font-label-sm text-on-primary opacity-70">Adiestramiento canino · Las Rozas de Madrid</span>
+    </div>
+    <nav class="flex flex-wrap justify-center gap-4 md:gap-gutter">
+      <a href="#servicios" class="font-label-sm text-on-primary opacity-80 hover:opacity-100 transition-opacity">Servicios</a>
+      <a href="#nosotros" class="font-label-sm text-on-primary opacity-80 hover:opacity-100 transition-opacity">Nosotros</a>
+      <a href="#resenas" class="font-label-sm text-on-primary opacity-80 hover:opacity-100 transition-opacity">Reseñas</a>
+      <a href="#contacto" class="font-label-sm text-on-primary opacity-80 hover:opacity-100 transition-opacity">Contacto</a>
+    </nav>
+    <div class="font-body-md text-sm text-on-primary opacity-70 text-center md:text-right">
+      © 2025 Maestra Canina · Las Rozas de Madrid
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', function() {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
+  document.querySelectorAll('#mobileMenu a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.add('hidden');
+    });
+  });
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.anim').forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>
